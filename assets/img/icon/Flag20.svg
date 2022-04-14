@@ -1,0 +1,14 @@
+<svg id="Flag20" xmlns="http://www.w3.org/2000/svg" width="36.095" height="22.083" viewBox="0 0 36.095 22.083">
+  <g id="Group_217" data-name="Group 217" transform="translate(0 0)">
+    <rect id="Rectangle_141" data-name="Rectangle 141" width="35.642" height="6.6" transform="translate(0.453 0.481)" fill="#333"/>
+    <path id="Path_81" data-name="Path 81" d="M36.449,21.136H1.581A.581.581,0,0,1,1,20.555V13.581A.581.581,0,0,1,1.581,13H36.449a.581.581,0,0,1,.581.581v6.973A.581.581,0,0,1,36.449,21.136ZM2.162,19.973H35.867V14.162H2.162Z" transform="translate(-1 -13)" fill="#414042"/>
+  </g>
+  <g id="Group_218" data-name="Group 218" transform="translate(0 13.947)">
+    <rect id="Rectangle_142" data-name="Rectangle 142" width="35.642" height="6.6" transform="translate(0.453 1.055)" fill="#ffb132"/>
+    <path id="Path_82" data-name="Path 82" d="M36.449,45.136H1.581A.581.581,0,0,1,1,44.555V37.581A.581.581,0,0,1,1.581,37H36.449a.581.581,0,0,1,.581.581v6.973A.581.581,0,0,1,36.449,45.136ZM2.162,43.973H35.867V38.162H2.162Z" transform="translate(-1 -37)" fill="#414042"/>
+  </g>
+  <g id="Group_219" data-name="Group 219" transform="translate(0 6.973)">
+    <rect id="Rectangle_143" data-name="Rectangle 143" width="35.642" height="7.92" transform="translate(0.453 0.108)" fill="#d34a4b"/>
+    <path id="Path_83" data-name="Path 83" d="M36.449,33.136H1.581A.581.581,0,0,1,1,32.555V25.581A.581.581,0,0,1,1.581,25H36.449a.581.581,0,0,1,.581.581v6.973A.581.581,0,0,1,36.449,33.136ZM2.162,31.973H35.867V26.162H2.162Z" transform="translate(-1 -25)" fill="#414042"/>
+  </g>
+</svg>

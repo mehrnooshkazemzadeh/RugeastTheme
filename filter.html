@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+     <script src="assets/js/custom.js"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .inner-card {
+            margin-bottom: 35px;
+        }
+        .filter-inner {
+            border-bottom: 1px solid #bcb5b5;
+            padding-bottom: 13px;
+            margin-bottom: 42px;
+            margin-top: 35px;
+        }
+
+            .filter-inner .filter-wrapper:last-of-type {
+                border-right: none;
+                margin-right: 0;
+            }
+
+            .filter-inner .filter-wrapper {
+                border-right: 1px solid #bcb5b5;
+                margin-right: 22px;
+            }
+
+        .filter-wrapper {
+            font-size: 16px;
+            font-family: var(--bold_font);
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            -o-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-align-items: baseline;
+            align-items: baseline;
+        }
+
+        .filter-txt {
+            margin: 0 22px;
+        }
+
+            .filter-txt:hover {
+                color: var(--color2)
+            }
+
+            .filter-txt.chosen {
+                color: var(--color2)
+            }
+
+                .filter-txt.chosen:before,
+                .filter-txt:before {
+                    content: '';
+                    width: 21px;
+                    height: 3px;
+                    border-radius: 15px;
+                    background-color: var(--color2);
+                    display: inline-block;
+                    position: absolute;
+                    bottom: -5px;
+                    left: 50%;
+                    transition: .4s;
+                    transform: translateX(-50%);
+                }
+
+                .filter-txt.chosen:before,
+                .filter-txt:hover:before {
+                    bottom: 0px;
+                }
+
+        .filter-txt {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            font-family: var(--bold_font);
+            padding-bottom: 5px;
+        }
+
+        .pagination ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+            .pagination ul li.current {
+                color: black;
+            }
+
+                .pagination ul li.current:before {
+                    content: '';
+                    z-index: -1;
+                    width: 24px;
+                    height: 24px;
+                    -webkit-filter: blur(14px);
+                    filter: blur(14px);
+                    background-color: #db1c23;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%)
+                }
+
+        .pagination ul {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            font-family: var(--bold_font);
+            color: #bcb5b5;
+            font-size: 16px;
+            margin-top: 80px;
+        }
+
+        .pagination {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: center;
+        }
+
+        .triangle-left {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-right: 30px solid #555;
+            border-bottom: 15px solid transparent;
+            transform: scale(.5);
+            display: inline-block;
+        }
+
+        .triangle-right {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-left: 30px solid #555;
+            border-bottom: 15px solid transparent;
+            transform: scale(.5);
+            display: inline-block;
+        }
+
+        @media screen and (max-width:767px) {
+            .product-card-image img {
+                width: 100%;
+            }
+
+            .filter-wrapper {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .filter-inner .filter-wrapper {
+                border-right: none;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <div id="header">
+        <div class="head-top">
+            <div class="container">
+                <div class="d-flex justify-content-between flex-wrap">
+                    <div class="head-top-left d-flex">
+                        <div class="head-item">
+                            <i class="icon-trasmission"></i>
+                            <span>Free Transmission</span>
+                        </div>
+                        <div class="head-item">
+                            <i class="icon-return"></i>
+                            <span>31 Days Return Policy</span>
+                        </div>
+                        <div class="head-item">
+                            <i class="icon-warranty"></i>
+                            <span>2 Years Warranty</span>
+                        </div>
+                    </div>
+                    <div class="head-top-right d-flex align-items-center">
+                        <div class="heade-item-r">
+                            <i class="icon-user"></i>
+                            Login
+                        </div>
+                        <div class="heade-item-r">
+                            <i class="icon-user icon-user-plus"></i>
+                            Sign Up
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-5 order-1 order-lg-1">
+                        <a href=""><img src="assets/img/logo.png" alt=""></a>
+                    </div>
+                    <div class="col-lg-8 order-3 order-lg-2">
+                        <div class="search">
+                            <form action="" class="search-form">
+                                <input type="text" placeholder="Search Poduct">
+                                <button><i class="icon-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="menu d-none d-lg-flex">
+                            <ul class="main-menu">
+                                <li>
+                                    <a href="">Home</a>
+                                </li>
+                                <li class="menu-has-children">
+                                    <a href="">Orientteppiche</a>
+                                </li>
+                                <li class="menu-has-children">
+                                    <a href="">Modernteppiche</a>
+                                </li>
+                                <li>
+                                    <a href="">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-7 order-2 order-lg-3">
+                        <div class="d-flex justify-content-lg-end justify-content-between flex-wrap align-items-end h-100">
+                            <a href="" class="basket-button"><i class="icon-basket"></i>Your Basket</a>
+                            <div class="switcher-flag">
+                            <div class="dropdown">
+                                    <div class="btn color-sel dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/img/icon/Flag20.svg" alt=""> <i class="icon-down-arrow"></i> DEU</div>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -116px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                        <span class="dropdown-item"><img src="assets/img/icon/Flag20.svg" alt=""> Action1</span>
+                                        <span class="dropdown-item"><img src="assets/img/icon/Flag20.svg" alt=""> Action2</span>
+                                        <span class="dropdown-item"><img src="assets/img/icon/Flag20.svg" alt=""> Action3</span>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="menu-mobile d-lg-none"><i class="icon-menu"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            <div id="filterbox">
+                <div id="filter-top">
+                    <div class="filterrow">
+                        <div class="rangwrap">
+                            <div class="rangbox">
+                                <div>Price</div>
+                                <input type="range" class="slider">
+                            </div>
+                            <div class="rangbox">
+                                <div>Length(cm)</div>
+                                <input type="range" class="slider">
+                            </div>
+                            <div class="rangbox">
+                                <div>Wide(cm)</div>
+                                <input type="range" class="slider">
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="shape filterrow">
+
+                            <label class="filtercolor-item">
+                                <input type="checkbox">
+                                <img src="assets/img/icon/Ellipse%2019.svg" alt="">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="filtercolor-item">
+                                <input type="checkbox">
+                                <img src="assets/img/icon/Ellipse%2019.svg" alt="">
+                                <span class="checkmark"></span>
+                            </label>
+
+                        </div>
+                    </div>
+                    <div id="filter-color">
+                        <p class="filtersub">Color</p>
+                        <div class="filterrow">
+                            <label class="filtercolor-item">
+                                <input type="checkbox" id="brown">
+                                <span class="checkmark"></span>
+                                <span class="checkimg">Brown <img src="assets/img/icon/Brown.svg" alt="Brown"></span>
+                            </label>
+
+                            <label class="filtercolor-item">
+                                <input type="checkbox" id="blue">
+                                <span class="checkmark"></span>
+                                <span class="checkimg">Blue <img src="assets/img/icon/Blue.svg" alt="blue"></span>
+
+                            </label>
+
+                            <label class="filtercolor-item">
+                                <input type="checkbox" id="red">
+
+                                <span class="checkmark"></span>
+                                <span class="checkimg">Red <img src="assets/img/icon/Red.svg" alt="red"></span>
+                            </label>
+
+                            <label class="filtercolor-item">
+                                <input type="checkbox" id="violet">
+                                <span class="checkmark"></span>
+                                <span class="checkimg">Violet <img src="assets/img/icon/Violet.svg" alt="violet"></span>
+                            </label>
+
+                            <label class="filtercolor-item">
+                                <input type="checkbox" id="green">
+                                <span class="checkmark"></span>
+                                <span class="checkimg">Green <img src="assets/img/icon/Green.svg" alt="green"></span>
+                            </label>
+
+
+
+                            <div class="filtercolor-item">
+                                <input type="checkbox" id="grey">
+                                <span class="checkmark"></span>
+                                <span class="checkimg">Gray <img src="assets/img/icon/Gray.svg" alt="grey"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filterrow ">
+                        <div class="filtercountry filter3">
+                            <p class="filtersub">Country</p>
+                            <div>
+                                <div class="selectwrap selstate">
+                                 <span class="selarrow"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                  <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+                                <option value="AL">Alabama</option>
+
+                                <option value="WY">Wyoming</option>
+                            </select>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="filter3">
+                            <p class="filtersub">Model</p>
+                            <div class="modelfilter">
+
+                                <label class="filtercolor-item">
+                                    <input type="checkbox">
+                                    <span class="checkname">Orientteppiche </span>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="filtercolor-item">
+                                    <input type="checkbox">
+                                    <span class="checkname">Modernteppiche </span>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="filtercolor-item">
+                                    <input type="checkbox">
+                                    <span class="checkname">Antike Teppiche </span>
+                                    <span class="checkmark"></span>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filterimg1 open-filterbox">
+                        <label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1601.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1602.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1603.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1605.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1605.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+
+                    </div>
+                    <div id="morebtn-filter"><a  id="morefilter-a">see more . . . </a></div>
+                    <div class="filterimg2 open-filterbox">
+                        <label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1601.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1602.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1603.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1605.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label class="filtercolor-item">
+                            <div class="groupwrap"> <div class="groupitem"><img src="assets/img/1605.png" alt=""><h3>Designer Teppiche</h3></div></div>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+
+                    </div>
+                </div>
+                <div id="filter-bottom">
+                    <button id="clear-filter">Clear Filters</button>
+                    <button id="apply-filter">Apply Filters</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="d-flex flex-wrap filter-inner">
+                <div class="filter-wrapper ">
+                    <span class="filter-title">
+                        sort by:
+                    </span>
+                    <a href="" class="filter-txt">Upper Price</a>
+                    <a href="" class="filter-txt  chosen">Lower Price</a>
+                </div>
+                <div class="filter-wrapper">
+                   
+                    <a href="" class="filter-txt chosen">Newer</a>
+                    <a href="" class="filter-txt">Latest</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 inner-card">
+                    <div class="product-card">
+                        <a href="" class="product-card-image">
+                            <img src="assets/img/pro1.png" alt="">
+                            <span class="iwrapper"><i class="icon-basket"></i></span>
+                        </a>
+                        <h2 class="product-card-title"><a href="">Meyme, 154 x 96</a></h2>
+                        <div class="pro-price">
+                            199.00€
+                        </div>
+                        <span class="pro-tax">Incl.Tax</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 inner-card">
+                    <div class="product-card">
+                        <a href="" class="product-card-image">
+                            <img src="assets/img/pro1.png" alt="">
+                            <span class="iwrapper"><i class="icon-basket"></i></span>
+                        </a>
+                        <h2 class="product-card-title"><a href="">Meyme, 154 x 96</a></h2>
+                        <div class="pro-price">
+                            199.00€
+                        </div>
+                        <span class="pro-tax">Incl.Tax</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 inner-card">
+                    <div class="product-card">
+                        <a href="" class="product-card-image">
+                            <img src="assets/img/pro1.png" alt="">
+                            <span class="iwrapper"><i class="icon-basket"></i></span>
+                        </a>
+                        <h2 class="product-card-title"><a href="">Meyme, 154 x 96</a></h2>
+                        <div class="pro-price">
+                            199.00€
+                        </div>
+                        <span class="pro-tax">Incl.Tax</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 inner-card">
+                    <div class="product-card">
+                        <a href="" class="product-card-image">
+                            <img src="assets/img/pro1.png" alt="">
+                            <span class="iwrapper"><i class="icon-basket"></i></span>
+                        </a>
+                        <h2 class="product-card-title"><a href="">Meyme, 154 x 96</a></h2>
+                        <div class="pro-price">
+                            199.00€
+                        </div>
+                        <span class="pro-tax">Incl.Tax</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 inner-card">
+                    <div class="product-card">
+                        <a href="" class="product-card-image">
+                            <img src="assets/img/pro1.png" alt="">
+                            <span class="iwrapper"><i class="icon-basket"></i></span>
+                        </a>
+                        <h2 class="product-card-title"><a href="">Meyme, 154 x 96</a></h2>
+                        <div class="pro-price">
+                            199.00€
+                        </div>
+                        <span class="pro-tax">Incl.Tax</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 inner-card">
+                    <div class="product-card">
+                        <a href="" class="product-card-image">
+                            <img src="assets/img/pro1.png" alt="">
+                            <span class="iwrapper"><i class="icon-basket"></i></span>
+                        </a>
+                        <h2 class="product-card-title"><a href="">Meyme, 154 x 96</a></h2>
+                        <div class="pro-price">
+                            199.00€
+                        </div>
+                        <span class="pro-tax">Incl.Tax</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="pagination">
+                <ul>
+                    <li class="pagination-next"><a href=""><span class="triangle-left"></span></a></li>
+                    <li class="current"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li class="pagination-prev"><a href=""><span class="triangle-right"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <footer class="footer-main">
+            <div class="container">
+                <div class="footer-wrapper">
+                    <div class="row">
+                        <div class="col-11 col-lg-10 mx-auto">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="footer-menu">
+                                        <h4 class="footer-title"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Neccessory Links</h4>
+                                        <ul>
+                                            <li><a href="">Orient Teppiche</a></li>
+                                            <li><a href="">Antike Teppiche</a></li>
+                                            <li><a href="">About Carpet</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-pay">
+                                        <h4 class="footer-title2"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Pay Safely</h4>
+                                        <a href=""><img src="assets/img/Dpd.png" alt=""></a>
+                                        <a href=""><img src="assets/img/giro.png" alt=""></a>
+                                        <a href=""><img src="assets/img/sofort.png" alt=""></a>
+                                        <a href=""><img src="assets/img/visa.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="footer-menu">
+                                        <h4 class="footer-title"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Neccessory Links</h4>
+                                        <ul>
+                                            <li><a href="">Orient Teppiche</a></li>
+                                            <li><a href="">Antike Teppiche</a></li>
+                                            <li><a href="">About Carpet</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-pay">
+                                        <h4 class="footer-title2"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Pay Safely</h4>
+                                        <a href=""><img src="assets/img/Dpd.png" alt=""></a>
+                                        <a href=""><img src="assets/img/giro.png" alt=""></a>
+                                        <a href=""><img src="assets/img/visa.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-5 mb-md-0">
+                                    <div class="footer-menu">
+                                        <h4 class="footer-title"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Neccessory Links</h4>
+                                        <ul>
+                                            <li><a href="">Orient Teppiche</a></li>
+                                            <li><a href="">Antike Teppiche</a></li>
+                                            <li><a href="">About Carpet</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-pay">
+                                        <h4 class="footer-title2"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Pay Safely</h4>
+                                        <a href=""><img src="assets/img/Dpd.png" alt=""></a>
+                                        <a href=""><img src="assets/img/giro.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copy-right">
+                    <p class="text-center">Copyright © 2020 TakWin. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+         <div id="mask"></div>
+<div id="menumobile">
+	<div class="title-mm">
+		<img src="assets/img/logo.png" alt="">
+		<span id="nomenumobile"><i class="icon-close"></i></span>
+	</div>
+	<div class="main-mm">
+	    <ul >
+                                <li>
+                                    <a href="">Home</a>
+                                </li>
+                                <li class="menu-has-children">
+                                    <a href="">Orientteppiche</a>
+                                </li>
+                                <li class="menu-has-children">
+                                    <a href="">Modernteppiche</a>
+                                </li>
+                                <li>
+                                    <a href="">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="">Contact</a>
+                                </li>
+                            </ul>	
+	</div>
+</div>
+    </main>
+    <script src="assets/js/jQuery.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+      <script>
+      
+ data1 =    $(".switcher-flag .dropdown-item:nth-of-type(1)").html()
+           $(".switcher-flag .dropdown .btn").html(data1)
+       $(".switcher-flag .dropdown-item").click(function(){
+                                             
+                                             var data = $(this).html()
+       
+            $(".switcher-flag .dropdown .btn").html(data)
+            $(".switcher-flag .dropdown .btn").removeClass("color-sel")
+           
+                                             })
+   
+
+            
+        $(document).ready(function () {
+            $("#morefilter-a").click(function(){
+                $(".filterimg2 ").css("display","flex")
+                 $("#morebtn-filter").css("display","none")
+            })
+              $(".js-example-basic-multiple").select2();
+            
+             $(".modelfilter .filtercolor-item input").change(function() {
+               
+                
+                if ($(this).is(':checked')) {
+                  
+            $(" #morebtn-filter").css("display","block")
+             $(".filterimg1").css("display","flex")
+                }
+                   
+                else {
+                  $(".open-filterbox , #morebtn-filter").css("display","none")
+                }
+
+
+            })
+           
+           
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <div id="header">
+            <div class="head-top">
+                <div class="container">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <div class="head-top-left d-flex">
+                            <div class="head-item">
+                                <i class="icon-trasmission"></i>
+                                <span>Free Transmission</span>
+                            </div>
+                            <div class="head-item">
+                                <i class="icon-return"></i>
+                                <span>31 Days Return Policy</span>
+                            </div>
+                            <div class="head-item">
+                                <i class="icon-warranty"></i>
+                                <span>2 Years Warranty</span>
+                            </div>
+                        </div>
+                        <div class="head-top-right d-flex align-items-center">
+                            <div class="heade-item-r">
+                                <i class="icon-user"></i>
+                                Login
+                            </div>
+                            <div class="heade-item-r">
+                                <i class="icon-user icon-user-plus"></i>
+                                Sign Up
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="head-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-5 order-1 order-lg-1">
+                            <a href=""><img src="assets/img/logo.png" alt=""></a>
+                        </div>
+                        <div class="col-lg-8 order-3 order-lg-2">
+                            <div class="search">
+                                <form action="" class="search-form">
+                                    <input type="text" placeholder="Search Poduct">
+                                    <button><i class="icon-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="menu d-none d-lg-flex">
+                                <ul class="main-menu">
+                                    <li>
+                                        <a href="">Home</a>
+                                    </li>
+                                    <li class="menu-has-children">
+                                        <a href="">Orientteppiche</a>
+                                    </li>
+                                    <li class="menu-has-children">
+                                        <a href="">Modernteppiche</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-7 order-2 order-lg-3">
+                            <div class="d-flex justify-content-lg-end justify-content-between flex-wrap align-items-end h-100">
+                                <a href="" class="basket-button"><i class="icon-basket"></i>Your Basket</a>
+                                <div class="switcher-flag">
+                                    <div class="dropdown">
+                                        <div class="btn color-sel dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/img/icon/Flag20.svg" alt=""> <i class="icon-down-arrow"></i> DEU</div>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -116px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                            <span class="dropdown-item"><img src="assets/img/icon/Flag20.svg" alt=""> Action1</span>
+                                            <span class="dropdown-item"><img src="assets/img/icon/Flag20.svg" alt=""> Action2</span>
+                                            <span class="dropdown-item"><img src="assets/img/icon/Flag20.svg" alt=""> Action3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu-mobile d-lg-none"><i class="icon-menu"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loginwrap">
+            <div id="loginbox">
+                <div id="formlogin">
+                    <form action="">
+                        <p class="formtop-l">Sign up</p>
+
+                        <label for="username-l">Username</label>
+
+                        <div class="form-p">
+                            <img src="assets/img/icon/user-icon.svg" alt="">
+                            <input type="text" id="username-l">
+                        </div>
+                        <label for="password-l">Password</label>
+
+                        <div class="form-p">
+                            <img src="assets/img/icon/pass-icon.svg" alt="">
+                            <input id="password-l" type="password">
+                        </div>
+                        <label for="repeatpassword-l">Confirm Password</label>
+
+                        <div class="form-p">
+                            <img src="assets/img/icon/pass-icon.svg" alt="">
+                            <input id="repeatpassword-l" type="password">
+                        </div>
+                        <button>Register</button>
+                    </form>
+                    <div id="orpart"></div>
+                    <div class="loginlinks">
+                        <a href=""><img src="assets/img/icon/google-icon.svg" alt="google-icon">Login With Google</a>
+                        <a href=""><img src="assets/img/icon/facebook-icon.svg" alt="facebook-icon">Login With Facebook</a>
+                    </div>
+                    <p id="signuplink"> Havent an accont ? <a href="">login</a></p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer-main">
+            <div class="container">
+                <div class="footer-wrapper">
+                    <div class="row">
+                        <div class="col-11 col-lg-10 mx-auto">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="footer-menu">
+                                        <h4 class="footer-title"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Neccessory Links</h4>
+                                        <ul>
+                                            <li><a href="">Orient Teppiche</a></li>
+                                            <li><a href="">Antike Teppiche</a></li>
+                                            <li><a href="">About Carpet</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-pay">
+                                        <h4 class="footer-title2"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Pay Safely</h4>
+                                        <a href=""><img src="assets/img/Dpd.png" alt=""></a>
+                                        <a href=""><img src="assets/img/giro.png" alt=""></a>
+                                        <a href=""><img src="assets/img/sofort.png" alt=""></a>
+                                        <a href=""><img src="assets/img/visa.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="footer-menu">
+                                        <h4 class="footer-title"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Neccessory Links</h4>
+                                        <ul>
+                                            <li><a href="">Orient Teppiche</a></li>
+                                            <li><a href="">Antike Teppiche</a></li>
+                                            <li><a href="">About Carpet</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-pay">
+                                        <h4 class="footer-title2"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Pay Safely</h4>
+                                        <a href=""><img src="assets/img/Dpd.png" alt=""></a>
+                                        <a href=""><img src="assets/img/giro.png" alt=""></a>
+                                        <a href=""><img src="assets/img/visa.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-5 mb-md-0">
+                                    <div class="footer-menu">
+                                        <h4 class="footer-title"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Neccessory Links</h4>
+                                        <ul>
+                                            <li><a href="">Orient Teppiche</a></li>
+                                            <li><a href="">Antike Teppiche</a></li>
+                                            <li><a href="">About Carpet</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                            <li><a href="">Order and Return</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-pay">
+                                        <h4 class="footer-title2"><i class="icon-point"><span class="path1"></span><span class="path2"></span></i>Pay Safely</h4>
+                                        <a href=""><img src="assets/img/Dpd.png" alt=""></a>
+                                        <a href=""><img src="assets/img/giro.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copy-right">
+                    <p class="text-center">Copyright © 2020 TakWin. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <div id="mask"></div>
+        <div id="menumobile">
+            <div class="title-mm">
+                <img src="assets/img/logo.png" alt="">
+                <span id="nomenumobile"><i class="icon-close"></i></span>
+            </div>
+            <div class="main-mm">
+                <ul>
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li class="menu-has-children">
+                        <a href="">Orientteppiche</a>
+                    </li>
+                    <li class="menu-has-children">
+                        <a href="">Modernteppiche</a>
+                    </li>
+                    <li>
+                        <a href="">Shop</a>
+                    </li>
+                    <li>
+                        <a href="">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/jQuery.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        data1 = $(".switcher-flag .dropdown-item:nth-of-type(1)").html()
+        $(".switcher-flag .dropdown .btn").html(data1)
+        $(".switcher-flag .dropdown-item").click(function() {
+
+            var data = $(this).html()
+
+            $(".switcher-flag .dropdown .btn").html(data)
+            $(".switcher-flag .dropdown .btn").removeClass("color-sel")
+
+        })
+
+    </script>
+</body>
+
+</html>
